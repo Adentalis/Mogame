@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: 'mogame'
+      MYSQL_USER: 'admin'
+      MYSQL_PASSWORD: 'pw'
+      MYSQL_ROOT_PASSWORD: 'rpw'
+    ports:
+      - '3306:3306'
+  phpMyAdmin:
+    image: phpmyadmin
+    environment:
+      PMA_ARBITRARY: 1
+    ports:
+      - '8080:80'
