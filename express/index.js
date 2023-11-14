@@ -4,25 +4,31 @@ const cors = require('cors');
 
 const app = express();
 app.use(cors());
-app.use(express.json());
+const port = 3000; // You can choose any port
 
-const db = mysql.createConnection({
-  host: 'localhost', // If using Docker, set this to the Docker container name or service name if using Docker Compose
-  user: 'myuser',
-  password: 'mypassword',
-  database: 'mydb',
+// MySQL connection
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'admin',
+  password: 'pw',
+  database: 'mogame',
 });
 
-app.get('/data', (req, res) => {
-  db.query('SELECT * FROM my_table', (err, results) => {
-    if (err) {
-      return res.status(500).json({ error: err.message });
-    }
+// Connect to MySQL
+connection.connect((err) => {
+  if (err) throw err;
+  console.log('Connected to the MySQL server.');
+});
+
+// Define a route to fetch data from the 'person' table
+app.get('/persons', (req, res) => {
+  connection.query('SELECT * FROM person', (err, results) => {
+    if (err) throw err;
     res.json(results);
   });
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+// Start the server
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
