@@ -1,9 +1,19 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from 'vue';
 
-defineProps<{ msg: string }>()
+defineProps<{ msg: string }>();
 
-const count = ref(0)
+const count = ref(0);
+
+const test = async () => {
+  try {
+    const response = await fetch('http://localhost:3000/persons');
+    const res = await response.json();
+    console.log(res);
+  } catch (error) {
+    console.error('Fetch error:', error);
+  }
+};
 </script>
 
 <template>
@@ -29,6 +39,7 @@ const count = ref(0)
     in your IDE for a better DX
   </p>
   <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
+  <button @click="test">test</button>
 </template>
 
 <style scoped>
