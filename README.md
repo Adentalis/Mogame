@@ -23,10 +23,32 @@ This is a recreation of the famous browser game Ogame
 - a database
 - a server
 
-## Prototype V1
+## Prototype V1 - DONE
 
 I want to initialize a mysql database with only one table and one value and display it within the frontend
 
 ## Prototype V2
 
 I want to add a button within the frontend that updates the value and render the new one
+
+## Prototype V3
+
+I want to create a whole prototype
+
+- Ressources:
+
+  - at the top of the screen show 2 ressources metal and crystal.
+  - both must be updated each seconed (in fe or backend?)
+  - create a formula how many resources per sec/min/h
+  - create devtools to set any resources I want.
+
+- Buildings:
+
+  - both mines and a shipyard
+  - find out if there is one /build endpoint for all buildings (I have to send the name as well then) or each building gets it's own one. What happens when the building can't be build because of not enough resources
+
+- db
+  - create all tables with diagrams
+  - each player has
+    - metainformation f.ex id, name, pw, lastlogin...
+    - n planets
