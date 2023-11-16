@@ -18,12 +18,13 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  /* min-width: 320px; */
-  /* min-height: 100vh; */
+  min-width: 320px;
+  min-height: 100vh;
 }
+
 #app {
-  /* Assuming your root element has the id 'app' */
   display: flex;
   flex-direction: row;
-  height: 100vh; /* Full height of the viewport */
+  height: 100vh;
+  min-width: 100%;
 }

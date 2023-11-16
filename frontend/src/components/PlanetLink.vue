@@ -1,5 +1,5 @@
 <template>
-  <div class="planet-link">Planet 1</div>
+  <div class="planet-link">Planet</div>
 </template>
 
 <style scoped>

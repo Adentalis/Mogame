@@ -8,4 +8,11 @@ const router = createRouter({
   routes: [],
 });
 
+/**
+ * possible routes
+ * - planet overwiew
+ * - galaxy
+ * - ranking
+ */
+
 createApp(App).use(router).mount('#app');
