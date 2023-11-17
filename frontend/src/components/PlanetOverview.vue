@@ -10,9 +10,22 @@
         <p>123456</p>
       </div>
     </div>
-    <div id="building"></div>
+    <div id="buildings">
+      <h2>Buildings</h2>
+      <div class="building">
+        <h3>Metallmine</h3>
+        <div>
+          <span>Stufe: </span>
+          <span>22</span>
+        </div>
+        <div>
+          <span>Kosten: </span>
+          <span>22Met, 33Crys</span>
+        </div>
+        <button>Build</button>
+      </div>
+    </div>
     <div id="test">
-      <button @click="test">Test</button>
       {{ persons }}
     </div>
   </div>
@@ -28,11 +41,6 @@ onMounted(async () => {
   persons.value = response;
   console.log(response);
 });
-
-const test = (): number => {
-  console.log('the-');
-  return 3;
-};
 </script>
 
 <style scoped lang="scss">
@@ -55,6 +63,17 @@ const test = (): number => {
 
     span {
       font-size: xx-large;
+    }
+  }
+}
+
+#buildings {
+  .building {
+    border: 1px greenyellow solid;
+    width: 200px;
+    div {
+      display: flex;
+      justify-content: space-between;
     }
   }
 }

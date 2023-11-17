@@ -32,5 +32,6 @@ import PlanetLink from './PlanetLink.vue';
   flex-basis: 25%;
   overflow-y: auto;
   height: calc(100vh - 100px);
+  min-width: 300px;
 }
 </style>
