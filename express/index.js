@@ -4,6 +4,7 @@ const cors = require('cors');
 
 const app = express();
 app.use(cors());
+app.use(express.json());
 const port = 3000; // You can choose any port
 
 // MySQL connection
@@ -25,6 +26,32 @@ app.get('/persons', (req, res) => {
   connection.query('SELECT * FROM person', (err, results) => {
     if (err) throw err;
     res.json(results);
+  });
+});
+
+app.put('/persons/:id', (req, res) => {
+  console.log('in PUT Person');
+  const id = req.params.id;
+  const { age } = req.body;
+  console.log(id);
+  console.log(age);
+
+  // Parameterized query to prevent SQL injection
+  const query = 'UPDATE person SET age = ? WHERE id = ?';
+
+  // res.send('hallo');
+  connection.query(query, [age, id], (err, result) => {
+    if (err) {
+      res.status(500).send("Error updating the person's age");
+      throw err;
+    }
+
+    console.log(result);
+    if (result.affectedRows === 0) {
+      res.status(404).send('Person not found');
+    } else {
+      res.send(`Person with ID ${id} updated successfully.`);
+    }
   });
 });
 
